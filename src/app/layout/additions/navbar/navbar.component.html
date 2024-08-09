@@ -1,0 +1,86 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container">
+    <a class="navbar-brand"
+      ><img src="assets/images/freshcart-logo.svg" alt=""
+    /></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      @if (isLoging) {
+      <ul class="navbar-nav text-capitalize">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['/home']"
+            routerLinkActive=" bg-main text-white rounded-pill"
+            >home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['/cart']"
+            routerLinkActive="bg-main text-white rounded-pill"
+            >cart</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['/products']"
+            routerLinkActive="bg-main text-white rounded-pill"
+            >products</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['/categories']"
+            routerLinkActive=" bg-main text-white rounded-pill"
+            >categories</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['/brands']"
+            routerLinkActive="bg-main text-white rounded-pill"
+            >brands</a
+          >
+        </li>
+      </ul>
+      }
+    </div>
+    <div class="d-flex gap-3 align align-items-center">
+      <i class="fa-brands fa-facebook"></i>
+      <i class="fa-brands fa-instagram"></i>
+      <i class="fa-brands fa-linkedin"></i>
+      <i class="fa-brands fa-x-twitter"></i>
+      <i class="fa-brands fa-youtube"></i>
+
+      @if (!isLoging) {
+      <a
+        class="nav-link"
+        [routerLink]="['/login']"
+        routerLinkActive="bg-main text-white rounded-pill p-2"
+        >login</a
+      >
+      <a
+        class="nav-link"
+        [routerLink]="['/register']"
+        routerLinkActive=" bg-main text-white rounded-pill p-2"
+        >register</a
+      >} @if (isLoging) { <a (click)="logout()" class="nav-link">logout</a>
+      }
+    </div>
+  </div>
+</nav>

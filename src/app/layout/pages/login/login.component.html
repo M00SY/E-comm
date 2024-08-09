@@ -1,0 +1,51 @@
+<div class="w-75 my-5 mx-auto">
+  <h2 class="text-primary text-capitalize">login now</h2>
+  @if (errMessage) {
+  <h3 class="alert alert-danger">{{ errMessage }}</h3>
+  }
+  <form (ngSubmit)="loginsubmit()" [formGroup]="loginForm">
+    <div class="my-3">
+      <label>Email:</label>
+      <input
+        formControlName="email"
+        class="form-control"
+        placeholder="email@mail.com"
+      />
+      @if (loginForm.get('email')?.errors && loginForm.get('email')?.touched){
+      <div class="alert alert-danger">
+        @if (loginForm.get('email')?.errors?.['required']) {
+        <p>email is required</p>
+        } @else if (loginForm.get('email')?.errors?.['email']) { please enter
+        valid email }
+      </div>
+      }
+    </div>
+    <div class="my-3">
+      <label>Password:</label>
+      <input
+        type="password"
+        formControlName="password"
+        class="form-control"
+        placeholder="enter ur password here"
+      />
+      @if (loginForm.get('password')?.errors &&
+      loginForm.get('password')?.touched){
+      <div class="alert alert-danger">
+        @if (loginForm.get('password')?.errors?.['required']) {
+        <p>password is required</p>
+        } @else if (loginForm.get('password')?.errors?.['pattern']) {
+        <p>please enter valid password</p>
+        }
+      </div>
+      }
+    </div>
+    <button
+      [disabled]="loginForm.invalid"
+      class="btn btn-primary rounded d-block ms-auto"
+      type="submit"
+    >
+      login @if (isLoading ) {
+      <i class="fa-solid fa-spinner fa-spin"></i> }
+    </button>
+  </form>
+</div>

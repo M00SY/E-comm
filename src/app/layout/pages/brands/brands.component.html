@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <!-- @for (brand of brand; track $index) { -->
+    <div class="col-md-3">
+      <div>
+        <img class="w-100" [src]="brand.image" alt="Product Image" />
+        <h4>{{ brand.name }}</h4>
+        <p>{{ brand.createdAt }}</p>
+      </div>
+    </div>
+    <!-- } -->
+  </div>
+</div>
